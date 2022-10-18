@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name = "main.html"), name = "home"),
+    path('', include('home.urls')),  # Change to ads.urls
+    path('admin/', admin.site.urls),  # Keep
     path('schools_app/', include('schools_app.urls')),
+    path('todo_app1', include('todo_app1.urls'))
 
 ]
